@@ -5,6 +5,10 @@ window.onload = ()=>{
 
 function getCity(){
     event.preventDefault();
+    
+    document.querySelector('.spinner-border').style.display = "block";
+    document.querySelector('.cart').style.display = "none"
+    
     let form = new FormData(event.target);
     let city = form.get('city')
     const key = 'ba828814d8948b4e3fee3e1b02dc4fa2'
@@ -55,6 +59,11 @@ function renderTime(timezone){
     else{
         imageContainer.src = 'night.jpg'
     }
+    setTimeout(function(){
+        document.querySelector('.spinner-border').style.display = "none";
+        document.querySelector('.cart').style.display = "block"
+
+    },500)    
 }
     
 

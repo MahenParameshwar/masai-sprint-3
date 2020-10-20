@@ -22,4 +22,16 @@ body{
 
 .cart{
     margin-top: 80px;
+    padding-bottom: 40px;
+    display: none;
+}
+
+.spinner-border{
+    display: none;
+}
+
+.search:hover{
+    background-color: aqua;
+    color: white;
+    transition: all 0.2s ease;
 }
