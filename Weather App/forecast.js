@@ -44,20 +44,20 @@ function renderTime(timezone){
     var hrs = d.getUTCHours();
     let imageContainer = document.querySelector('.time')
     if(hrs >=6 && hrs < 12){
-        imageContainer.src = 'morning.jpg'
+        imageContainer.src = '/images/morning.jpg'
     }
     else
     if(hrs >=12 && hrs < 16)
     {
-        imageContainer.src = 'noon.jpg'
+        imageContainer.src = '/images/noon.jpg'
     }
     else
     if(hrs >=16 && hrs < 19)
     {
-        imageContainer.src = 'evening.jpg'
+        imageContainer.src = '/images/evening.jpg'
     }
     else{
-        imageContainer.src = 'night.jpg'
+        imageContainer.src = '/images/night.jpg'
     }
     setTimeout(function(){
         document.querySelector('.spinner-border').style.display = "none";
