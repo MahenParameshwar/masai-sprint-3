@@ -23,7 +23,7 @@ function getCity(){
             
     
             let response = JSON.parse(this.response);
-            
+            console.log(response)
             let iconId = response.weather[0].icon;
             
             document.querySelector('.city').textContent = city
@@ -34,6 +34,9 @@ function getCity(){
 
             document.getElementById('temperature').textContent = (response.main.temp - 273).toFixed(2);
 
+            document.querySelector('.pressure').textContent = `${response.main.pressure} mb`
+            document.querySelector('.humidity').textContent = `${response.main.humidity} %`
+            document.querySelector('.speed').textContent = `${response.wind.speed} km/h`
             renderTime(response.timezone);
         }
     }
