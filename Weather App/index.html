@@ -7,7 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <script type="text/javascript" src="forecast.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container my-5 mx-auto">
+        <h1 class="text-muted text-center my-4">Weather App</h1>
+        
+        <form class="change-location my-5 text-center text-muted">
+            <label for="city">Enter a location for weather information</label>
+            <input type="text" name="city" class='form-control p-4'>
+            <input class="search form-control my-3" type="submit" value="submit">
+        </form>
+
+        <div class="cart shadow-lg rounded">
+            <img src="https://via.placeholder.com/400x300" class='time card-img img-top' alt="">
+            <div class="icon mx-auto text-center">
+                <!--Icon-->
+                <img src="" alt="" id="weather-icon">
+            </div>
+            <div class="text-muted text-uppercase text-center details">
+                <h5 class="city my-3">City name</h5>
+                <div class="my-3" id="weather">Weather conditions</div>
+                <div class="display-4 my-4">
+                    <span id="temperature">TEMP</span>
+                    <span>&deg;C</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/forecast.js"></script>
 </body>
 </html>
