@@ -16,9 +16,10 @@ function getCity(){
     xhr.send();
     xhr.onload = function(){
         if(this.status === 200){
-            renderTime(city);
+            
     
             let response = JSON.parse(this.response);
+            
             let iconId = response.weather[0].icon;
             
             document.querySelector('.city').textContent = city
@@ -29,38 +30,31 @@ function getCity(){
 
             document.getElementById('temperature').textContent = (response.main.temp - 273).toFixed(2);
 
-            
+            renderTime(response.timezone);
         }
     }
 }
 
-function renderTime(city){
-    let xhr = new XMLHttpRequest();
-    
-    let url = `https://cors-anywhere.herokuapp.com/https://www.amdoren.com/api/timezone.php?api_key=jnTUT9en2HWLit7j5WYzXdg3sdsPn9&loc=${city}`;
-    xhr.open('GET',url);
-    xhr.send();
-    xhr.onload = function(){
-        if(this.status === 200){
-            let response = JSON.parse(this.response);
-            let time = Number(response.time.split(' ')[1].split(':')[0])
-            let imageContainer = document.querySelector('.time')
-            if(time >=6 && time < 12){
-                imageContainer.src = 'morning.jpg'
-            }
-            else
-            if(time >=12 && time < 16)
-            {
-                imageContainer.src = 'noon.jpg'
-            }
-            else
-            if(time >=16 && time < 19)
-            {
-                imageContainer.src = 'evening.jpg'
-            }
-            else{
-                imageContainer.src = 'night.jpg'
-            }
-        }
+function renderTime(timezone){
+    var d = new Date(new Date().getTime() + (timezone * 1000));
+    var hrs = d.getUTCHours();
+    let imageContainer = document.querySelector('.time')
+    if(hrs >=6 && hrs < 12){
+        imageContainer.src = 'morning.jpg'
+    }
+    else
+    if(hrs >=12 && hrs < 16)
+    {
+        imageContainer.src = 'noon.jpg'
+    }
+    else
+    if(hrs >=16 && hrs < 19)
+    {
+        imageContainer.src = 'evening.jpg'
+    }
+    else{
+        imageContainer.src = 'night.jpg'
     }
 }
+    
+
